@@ -1,10 +1,8 @@
 from datetime import timedelta
-from string import punctuation
 #from types import NoneType
 from django.urls import reverse
 from django.shortcuts import get_list_or_404, render, get_object_or_404
 import numpy as np
-import os
 import pandas as pd
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
@@ -13,7 +11,6 @@ from datetime import date, timedelta
 from gdeltdoc import GdeltDoc, Filters
 from .models import Gdelt, Crypto
 import torch
-import psycopg2
 from transformers import AutoTokenizer, AutoModelForSequenceClassification
 import datetime
 from django.utils import timezone
