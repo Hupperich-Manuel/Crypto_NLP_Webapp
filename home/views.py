@@ -118,11 +118,10 @@ def InfoExtraction(request):
         if identify is not None:
 
             select_place = []
-            index_id = Gdelt.objects.all().values_list('id', flat=True).order_by('-id').first()
+            #index_id = Gdelt.objects.all().values_list('id', flat=True).order_by('-id').first()
             for index, row in enumerate(range(0, df.shape[0]), 1):
 
                 selected_choice = Gdelt(
-                    id = index_id + index,
                     date = timezone.now(),
                     crypto = crypto_input,
                     url = df.iloc[row].values[0],
