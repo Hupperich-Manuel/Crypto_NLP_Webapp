@@ -64,7 +64,7 @@ def InfoExtraction(request):
             keyword = crypto_input.capitalize(),
             start_date = str(start_date),
             end_date = str(end_date),
-            num_records = 5
+            num_records = 10
             )
 
             gd = GdeltDoc()
