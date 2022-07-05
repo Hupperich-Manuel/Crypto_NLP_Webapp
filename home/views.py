@@ -43,7 +43,7 @@ def InfoExtraction(request):
         return sum(score_row)
 
 
-    currenday = date.today()- timedelta(days=2)
+    currenday = date.today()- timedelta(days=1)
     today = timezone.now()
 
     rate = Gdelt.objects.filter(crypto=crypto_input, date__day=today.day).last()
@@ -55,7 +55,7 @@ def InfoExtraction(request):
     
     else:
         texts = ['Hello Crypto Enthusiast.', 'Congratulations for being!', f'1st searching {crypto_input} today 🚀']
-        daybefore = currenday - timedelta(days=3)
+        daybefore = currenday - timedelta(days=2)
         start_date = daybefore.strftime("%Y-%m-%d")
         end_date = currenday.strftime("%Y-%m-%d")
 
@@ -64,7 +64,7 @@ def InfoExtraction(request):
             keyword = crypto_input.capitalize(),
             start_date = str(start_date),
             end_date = str(end_date),
-            num_records = 10
+            num_records = 5
             )
 
             gd = GdeltDoc()
