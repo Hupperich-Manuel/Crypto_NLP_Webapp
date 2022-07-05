@@ -61,7 +61,7 @@ def InfoExtraction(request):
 
         try:
             f = Filters(
-            keyword = crypto_input,
+            keyword = crypto_input.capitalize(),
             start_date = str(start_date),
             end_date = str(end_date),
             num_records = 10
@@ -152,7 +152,7 @@ def InfoExtraction(request):
                     finbert_positive = round(df.iloc[row].values[8],3),
                     finbert_negative = round(df.iloc[row].values[9],3),
                     final_finbert = round(df.iloc[row].values[11],3),
-                    fama_french = int(Crypto.objects.filter(crypto_name=crypto_input).values('abnormal_rets'))
+                    fama_french = int(list(Crypto.objects.filter(crypto_name=crypto_input).values('abnormal_rets').last().values())[0])
 
                 )
                 select_place.append(selected_choice)
