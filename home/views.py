@@ -17,13 +17,8 @@ import psycopg2
 from transformers import AutoTokenizer, AutoModelForSequenceClassification
 import datetime
 from django.utils import timezone
-import yfinance as yf
 from django.http import JsonResponse
-import pickle
-import joblib
-from sklearn.svm import SVC
-from sklearn.pipeline import Pipeline
-from sklearn.feature_extraction.text import CountVectorizer, TfidfTransformer
+
 
 
 def IndexView(request):
@@ -51,7 +46,7 @@ def InfoExtraction(request):
         return sum(score_row)
 
 
-    currenday = date.today()
+    currenday = date.today()- timedelta(days=2)
     today = timezone.now()
 
     rate = Gdelt.objects.filter(crypto=crypto_input, date__day=today.day).last()
@@ -63,7 +58,7 @@ def InfoExtraction(request):
     
     else:
         texts = ['Hello Crypto Enthusiast.', 'Congratulations for being!', f'1st searching {crypto_input} today 🚀']
-        daybefore = currenday - timedelta(days=1)
+        daybefore = currenday - timedelta(days=3)
         start_date = daybefore.strftime("%Y-%m-%d")
         end_date = currenday.strftime("%Y-%m-%d")
 

@@ -25,6 +25,3 @@ torch==1.11.0+cpu
 honcho==1.1.0
 waitress==2.1.2
 DateTime==4.4
-yfinance==0.1.72
-joblib==1.1.0
-scikit-learn==1.0.2
