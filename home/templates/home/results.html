@@ -207,7 +207,7 @@
                               <td>{{row.final_finbert}}</td>
                               <td>{{row.fama_french}}</td>
                           </tr>
-                      {% elif row.final_finbert > -0.5 and row.fama_french == 1 %}
+                      {% elif row.final_finbert > 0.5 and row.fama_french == 1 %}
                           <tr class='manu' id='display'>
                               <td>{{row.crypto}}</td>
                               <td class='links'><a href={{row.url}}>{{row.url}}</a></td>
@@ -218,7 +218,7 @@
                               <td>{{row.final_finbert}}</td>
                               <td>{{row.fama_french}}</td>
                           </tr>
-                      {% elif row.final_finbert < 0.5 and row.fama_french == 1 %}
+                      {% elif row.final_finbert < -0.5 and row.fama_french == 1 %}
                           <tr class='manu1' id='display'>
                               <td>{{row.crypto}}</td>
                               <td class='links'><a href={{row.url}}>{{row.url}}</a></td>
@@ -262,6 +262,7 @@
                               <td>{{row.final_finbert}}</td>
                               <td>{{row.fama_french}}</td>
                           </tr>
+                      {% endif %}
                       {% endif %}
                   {% endfor %}
                     </tbody>
