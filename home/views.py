@@ -54,7 +54,7 @@ def InfoExtraction(request):
     currenday = date.today()
     today = timezone.now()
 
-    rate = Gdelt.objects.filter(crypto=crypto_input, date__day=today.day-1).last()
+    rate = Gdelt.objects.filter(crypto=crypto_input, date__day=today.day).last()
 
     if rate is not None:
 
@@ -63,7 +63,7 @@ def InfoExtraction(request):
     
     else:
         texts = ['Hello Crypto Enthusiast.', 'Congratulations for being!', f'1st searching {crypto_input} today 🚀']
-        daybefore = currenday - timedelta(days=2)
+        daybefore = currenday - timedelta(days=1)
         start_date = daybefore.strftime("%Y-%m-%d")
         end_date = currenday.strftime("%Y-%m-%d")
 
@@ -161,7 +161,7 @@ def InfoExtraction(request):
                     finbert_positive = round(df.iloc[row].values[8],3),
                     finbert_negative = round(df.iloc[row].values[9],3),
                     final_finbert = round(df.iloc[row].values[11],3),
-                    fama_french = int(list(Gdelt.objects.filter(crypto=crypto_input).values('fama_french').last().values())[0])
+                    fama_french = int(Crypto.objects.filter(crypto_name=crypto_input).values('abnormal_rets'))
 
                 )
                 select_place.append(selected_choice)
