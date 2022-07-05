@@ -64,7 +64,7 @@ def InfoExtraction(request):
             keyword = crypto_input,
             start_date = str(start_date),
             end_date = str(end_date),
-            num_records = 5
+            num_records = 10
             )
 
             gd = GdeltDoc()
@@ -105,7 +105,7 @@ def InfoExtraction(request):
         df["final_finbert"] =  df['finbert_max_pos_neg'].apply(lambda x: 2 if x > 0.9 else x)
         df["final_finbert"] =  df['final_finbert'].apply(lambda x: -2 if x < -0.9 else x)
  
-        identify = Gdelt.objects.filter(crypto=crypto_input)
+        identify = Gdelt.objects.filter(crypto=crypto_input).last()
 
         if identify is not None:
 
