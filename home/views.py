@@ -110,6 +110,12 @@ def InfoExtraction(request):
         if identify is not None:
 
             select_place = []
+            ff = int(list(Gdelt.objects.filter(crypto=crypto_input).values('fama_french').last().values())[0])
+            if ff is None:
+                fama = 0
+            else:
+                fama = int(list(Gdelt.objects.filter(crypto=crypto_input).values('fama_french').last().values())[0])
+
             #index_id = Gdelt.objects.all().values_list('id', flat=True).order_by('-id').first()
             for index, row in enumerate(range(0, df.shape[0]), 1):
 
@@ -127,7 +133,7 @@ def InfoExtraction(request):
                     finbert_positive = round(df.iloc[row].values[8],3),
                     finbert_negative = round(df.iloc[row].values[9],3),
                     final_finbert = round(df.iloc[row].values[11],3),
-                    fama_french = int(list(Gdelt.objects.filter(crypto=crypto_input).values('fama_french').last().values())[0])
+                    fama_french = fama
 
                 )
                 select_place.append(selected_choice)
