@@ -28,7 +28,7 @@ def InfoExtraction(request):
     is_json = request.POST.get('json', False)
 
     '''This part gets the data from gdelt'''
-    words = ['cryptocurrency','crypto','cryptocurrencies','cbdc', 'ether', 'Ethereum', 'Litecoin', 'BitcoinCash', 'BitcoinSV', 'Polkadot', 'Chainlink', 'BinanceCoin', 'VeChain', 'Cosmos', 'Polkadot', 'NEO', 'Tezos', 'Tether', 'USDCoin', 'Monero', 'Dash', 'Zcash', 'Ripple', 'Cardano', 'Stellar', 'CounosX', 'bitcoin']
+    words = ['price','cryptocurrency','crypto','cryptocurrencies','cbdc', 'ether', 'Ethereum', 'Litecoin', 'BitcoinCash', 'BitcoinSV', 'Polkadot', 'Chainlink', 'BinanceCoin', 'VeChain', 'Cosmos', 'Polkadot', 'NEO', 'Tezos', 'Tether', 'USDCoin', 'Monero', 'Dash', 'Zcash', 'Ripple', 'Cardano', 'Stellar', 'CounosX', 'bitcoin']
     words = [i.lower() for i in words]
 
 
@@ -61,7 +61,7 @@ def InfoExtraction(request):
 
         try:
             f = Filters(
-            keyword = crypto_input.capitalize(),
+            keyword = crypto_input,
             start_date = str(start_date),
             end_date = str(end_date),
             num_records = 5
