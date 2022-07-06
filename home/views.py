@@ -28,7 +28,7 @@ def InfoExtraction(request):
     is_json = request.POST.get('json', False)
 
     '''This part gets the data from gdelt'''
-    words = ['price','cryptocurrency','crypto','cryptocurrencies','cbdc', 'ether', 'Ethereum', 'Litecoin', 'BitcoinCash', 'BitcoinSV', 'Polkadot', 'Chainlink', 'BinanceCoin', 'VeChain', 'Cosmos', 'Polkadot', 'NEO', 'Tezos', 'Tether', 'USDCoin', 'Monero', 'Dash', 'Zcash', 'Ripple', 'Cardano', 'Stellar', 'CounosX', 'bitcoin']
+    words = ['market','price','cryptocurrency','crypto','cryptocurrencies','cbdc', 'ether', 'Ethereum', 'Litecoin', 'BitcoinCash', 'BitcoinSV', 'Polkadot', 'Chainlink', 'BinanceCoin', 'VeChain', 'Cosmos', 'Polkadot', 'NEO', 'Tezos', 'Tether', 'USDCoin', 'Monero', 'Dash', 'Zcash', 'Ripple', 'Cardano', 'Stellar', 'CounosX', 'bitcoin']
     words = [i.lower() for i in words]
 
 
