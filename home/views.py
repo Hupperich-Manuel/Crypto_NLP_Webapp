@@ -54,7 +54,7 @@ def InfoExtraction(request):
         texts = ['Hi user!!', 'Sorry this time you were 2nd', 'therefore, you only get todays data 😉']
     
     else:
-        texts = ['Hello Crypto Enthusiast.', 'Congratulations for being!', f'1st searching {crypto_input} today 🚀']
+        texts = ['Hello Crypto Enthusiast.', 'Congratulations for being!', f'1st searching {crypto_input.capitalize()} today 🚀']
         daybefore = currenday - timedelta(days=1)
         start_date = daybefore.strftime("%Y-%m-%d")
         end_date = currenday.strftime("%Y-%m-%d")
