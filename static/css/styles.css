@@ -6078,9 +6078,9 @@ textarea.form-control-lg {
 .hidden {
   opacity:0;
 }
-.console-container {
+.console-container_manu {
  
-  font-size:2.5em;
+  font-size:20px !important;
   text-align:center;
   height:200px;
   width:600px;
@@ -6093,7 +6093,7 @@ textarea.form-control-lg {
   right:0;
   margin:auto;
 }
-.console-underscore {
+.console-underscore_manu {
    display:inline-block;
   position:relative;
   top:-0.14em;
